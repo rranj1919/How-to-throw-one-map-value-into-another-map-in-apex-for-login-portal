@@ -1,0 +1,32 @@
+public class LoginPages  {
+    public String userName{get; set;}
+    public String password {get; set;}
+    public boolean testFlag = true;
+    public boolean flag = true;
+    Map<String,String> example = new Map<String,String>();
+    Public void doLogin(){
+        
+        Map<Id,LoginDB__c> m = new Map<Id, LoginDB__c>([SELECT Id , Name, password__c FROM LoginDB__c]);
+        
+       for(LoginDB__c l :m.values())   {   
+            example.put(l.Name,l.password__c);
+            
+       }
+      for (String key : example.keySet()) {
+      String value = example.get(key);
+      
+        if(example.containsKey(userName) && Value == password && flag){
+        flag = false;
+        }
+      }
+        if(Flag){
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.ERROR,'incorrect uid'));
+        }
+        else{ApexPages.addmessage(new ApexPages.message(ApexPages.severity.CONFIRM,'correct userName')); 
+            }      
+      }
+        }
+        
+    
+        
+    
